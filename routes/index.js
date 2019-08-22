@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
     if(e) { return console.log(e) }
     res.render('index', { title: 'Lista de serviços ', docs: docs });
   });
-  // res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
