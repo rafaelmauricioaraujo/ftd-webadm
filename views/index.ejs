@@ -11,12 +11,24 @@
 <body>
   <h1><%= title %></h1>
     <div>
-      <table>
-        <thead>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope='col'>Secretaria</th>
 
+          </tr>
         </thead>
+        <tbody>
+          <% docs.forEach(function(details) { %>
+          <tr>
+            <th scope='row'><%= details.secretaria %></th>
+
+          </tr>
+          <% }) %>
+        </tbody>
       </table>
     </div>
+  <!--
   <ul class="list-group">
     <% docs.forEach(function(details){ %>
     <li class="list-group-item" >
@@ -24,6 +36,7 @@
     </li>
     <% }) %>
   </ul>
+  -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

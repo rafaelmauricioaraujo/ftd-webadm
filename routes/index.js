@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   global.db.findAll(function(err, docs) {
 
     if(err) { 
-      return console.log(e) 
+      return console.log(err) 
     }
     res.render('index', { title: 'Lista de serviços ', docs: docs });
   });
