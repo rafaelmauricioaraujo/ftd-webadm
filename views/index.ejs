@@ -14,29 +14,43 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th scope='col'>ID</th>
             <th scope='col'>Secretaria</th>
-
+            <th scope='col'>Servico</th>
+            <th scope='col'>Descrição</th>
+            <th scope='col'>Etapas</th>
+            <th scope='col'>Palavras Chave</th>
+            <th scope='col'>Requisitos</th>
+            <th scope='col'>Link</th>
+            <th scope='col'>Horário</th>
+            <th scope='col'>Area Responsavel</th>
+            <th scope='col'>Endereco</th>
+            <th scope='col'></th>
           </tr>
         </thead>
         <tbody>
           <% docs.forEach(function(details) { %>
           <tr>
-            <th scope='row'><%= details.secretaria %></th>
-
+            <td><%= details._id %></td>
+            <td><%= details.secretaria %></td>
+            <td><%= details.servico %></td>
+            <td><%= details.descricao %></td>
+            <td><%= details.etapas %></td>
+            <td><%= details.palavras_chave %></td>
+            <td><%= details.requisitos %></td>
+            <td><%= details.link %></td>
+            <td><%= details.horario %></td>
+            <td><%= details.area_responsavel %></td>
+            <td><%= details.endereco %></td>
+            <td>
+              <a href="/edit/<%=details._id%>">Editar</a>
+              <a href="/delete/<%=details._id%>">Deletar</a>
+            </td>
           </tr>
           <% }) %>
         </tbody>
       </table>
     </div>
-  <!--
-  <ul class="list-group">
-    <% docs.forEach(function(details){ %>
-    <li class="list-group-item" >
-      <%= details.secretaria %>
-    </li>
-    <% }) %>
-  </ul>
-  -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
