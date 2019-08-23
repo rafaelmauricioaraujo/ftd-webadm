@@ -18,4 +18,8 @@ function findOne(id, callback){
     global.conn.collection(process.env.COLL).find(new ObjectId(id)).toArray(callback);
 }
 
-module.exports = { findAll, insertOne, findOne }
+function update(id, servico, callback){
+    global.conn.collection(process.env.COLL).updateOne({_id:new ObjectId(id)}, servico, callback);
+}
+
+module.exports = { findAll, insertOne, findOne, update }
