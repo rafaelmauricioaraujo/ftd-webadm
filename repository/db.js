@@ -9,7 +9,7 @@ function findAll(callback){
     global.conn.collection(process.env.COLL).find({}).toArray(callback);
 }
 
-function insert(servico, callback){
-    global.conn.collection(process.env.COLL).insert(servico, callback);
+function insertOne(servico, callback){
+    global.conn.collection(process.env.COLL).insertOne(servico, callback);
 }
-module.exports = { findAll, insert }
+module.exports = { findAll, insertOne }
