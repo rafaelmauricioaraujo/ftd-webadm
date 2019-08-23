@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <form action="/new" method="POST">
+        <p>Secretaria:<input type="text" name="secretaria" /></p>
+        <p>Serviço:<input type="text" name="servico" /></p>
+        <p>Descrição:<input type="text" name="descricao" /></p>
+        <p>Etapas:<input type="text" name="etapas" /></p>
+        <p>Palavras Chaves:<input type="text" name="palavras_chave" /></p>
+        <p>Requisitos:<input type="text" name="requisitos" /></p>
+        <p>Link:<input type="text" name="link" /></p>
+        <p>Horário:<input type="text" name="horario" /></p>
+        <p>Area Responsável:<input type="text" name="area_responsavel" /></p>
+        <p>Endereco:<input type="text" name="endereco" /></p>
+        <input type="submit" value="Salvar" />
+    </form>
+</body>
+
+</html>
