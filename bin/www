@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('ftd-webadm:server');
 var http = require('http');
 global.db = require('../repository/db');
+global.wdb = require('../repository/wdb');
 
 /**
  * Get port from environment and store in Express.

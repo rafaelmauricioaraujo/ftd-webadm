@@ -1,4 +1,3 @@
-
 var mongoClient = require('mongodb').MongoClient;
 
 mongoClient.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -6,10 +5,10 @@ mongoClient.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology
 .catch(err => console.log(err));
 
 function findAll(callback){
-    global.conn.collection(process.env.COLL).find({}).toArray(callback);
+    global.conn.collection(process.env.WCOLL).find({}).toArray(callback);
 }
 
-function insert(servico, callback){
-    global.conn.collection(process.env.COLL).insert(servico, callback);
+function insertOne(entidades, callback){
+    global.conn.collection(process.env.WCOLL.insertOne(entidades, callback));
 }
-module.exports = { findAll, insert }
+module.exports = { findAll, insertOne }
