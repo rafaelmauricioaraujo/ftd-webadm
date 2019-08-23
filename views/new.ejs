@@ -16,12 +16,13 @@
             <form action="/new" method="POST">
                 <div class="form-group">
                     <label>Secretaria</label>
-                    <input type="text" name="secretaria" class="form-control"
-                        placeholder="Digite o nome da Secretaria" />
+                    <input type="text" name="secretaria" class="form-control" placeholder="Digite o nome da Secretaria"
+                        value="<%= doc.secretaria %>" />
                 </div>
                 <div class="form-group">
                     <label>Serviço</label>
-                    <input type="text" name="servico" class="form-control" placeholder="Digite o nome do serviço" />
+                    <input type="text" name="servico" class="form-control" placeholder="Digite o nome do serviço"
+                        value="<%= doc.servico %>" />
                 </div>
                 <div class="form-group">
                     <label>Sinônimos dos serviços</label>
@@ -29,36 +30,43 @@
                 </div>
                 <div class="form-group">
                     <label>Decrição</label>
-                    <input type="text" name="descricao" class="form-control" placeholder="Digite uma breve descrição" />
+                    <input type="text" name="descricao" class="form-control" placeholder="Digite uma breve descrição"
+                        value="<%= doc.descricao %>" />
                 </div>
                 <div class="form-group">
                     <label>Etapas</label>
-                    <input type="text" name="etapas" class="form-control" placeholder="Digite as etapas" />
+                    <input type="text" name="etapas" class="form-control" placeholder="Digite as etapas"
+                        value="<%= doc.etapa %>" />
                 </div>
                 <div class="form-group">
                     <label>Palavras Chaves</label>
-                    <input type="text" name="etapas" class="form-control" placeholder="Digite palavras chaves" />
+                    <input type="text" name="etapas" class="form-control" placeholder="Digite palavras chaves"
+                        value="<%= doc.palavra_chaves %>" />
                 </div>
                 <div class="form-group">
                     <label>Requisitos</label>
-                    <input type="text" name="requisitos" class="form-control" placeholder="Digite os requisitos" />
+                    <input type="text" name="requisitos" class="form-control" placeholder="Digite os requisitos"
+                        value="<%= doc.requisitos %>" />
                 </div>
                 <div class="form-group">
                     <label>Link</label>
-                    <input type="text" name="link" class="form-control" placeholder="Digite o link" />
+                    <input type="text" name="link" class="form-control" placeholder="Digite o link"
+                        value="<%= doc.link %>" />
                 </div>
                 <div class="form-group">
                     <label>Horário</label>
-                    <input type="text" name="horario" class="form-control" placeholder="Digite o horário" />
+                    <input type="text" name="horario" class="form-control" placeholder="Digite o horário"
+                        value="<%= doc.horario %>" />
                 </div>
                 <div class="form-group">
                     <label>Area Responsável</label>
                     <input type="text" name="area_responsavel" class="form-control"
-                        placeholder="Digite a área responsável" />
+                        placeholder="Digite a área responsável" value="<%= doc.area_responsavel %>" />
                 </div>
                 <div class="form-group">
                     <label>Endereço</label>
-                    <input type="text" name="endereco" class="form-control" placeholder="Digite o endereço" />
+                    <input type="text" name="endereco" class="form-control" placeholder="Digite o endereço"
+                        value="<%= doc.endereco %>" />
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Salvar</button>

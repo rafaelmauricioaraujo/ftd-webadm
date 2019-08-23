@@ -15,7 +15,7 @@ function insertOne(servico, callback){
 }
 
 function findOne(id, callback){
-    global.conn.collection(process.env.COLL).find(new ObjectId(id).toArray(callback));
+    global.conn.collection(process.env.COLL).find(new ObjectId(id)).toArray(callback);
 }
 
 module.exports = { findAll, insertOne, findOne }

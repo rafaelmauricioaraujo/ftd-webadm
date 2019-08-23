@@ -69,4 +69,16 @@ router.post('/new', function(req, res){
     }
 })
 
+router.get('/edit/:id', function(req, res, next){
+  let id = req.params.id;
+
+  global.db.findOne(id, function(err, docs) {
+    if (err) {
+      throw new Error('Erro ao buscar servico');
+    }else {
+      res.render('new', { title: 'Edição de serviço', doc: docs[0], action: '/edit/' + docs[0]._id });
+    }
+  });
+});
+
 module.exports = router;
