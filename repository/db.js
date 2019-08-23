@@ -1,5 +1,6 @@
 
-var mongoClient = require('mongodb').MongoClient;
+const mongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
 
 mongoClient.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(conn => global.conn = conn.db(process.env.DB))
@@ -12,4 +13,9 @@ function findAll(callback){
 function insertOne(servico, callback){
     global.conn.collection(process.env.COLL).insertOne(servico, callback);
 }
-module.exports = { findAll, insertOne }
+
+function findOne(id, callback){
+    global.conn.collection(process.env.COLL).find(new ObjectId(id).toArray(callback));
+}
+
+module.exports = { findAll, insertOne, findOne }
