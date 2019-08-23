@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res, next){
-  res.render('new', { title: 'Novo serviço'});
+  res.render('new', { title: 'Novo serviço' , action: '/new' });
 });
 
 router.post('/new', function(req, res){
@@ -59,7 +59,7 @@ router.post('/new', function(req, res){
     link:link, 
     horario:horario,
     area_responsavel:area_responsavel,
-    enderecos}), function(err, result){
+    enderecos:enderecos}), function(err, result){
       if(err) {
         throw new Error('Erro ao inserir serviço');
       }else{
@@ -79,6 +79,41 @@ router.get('/edit/:id', function(req, res, next){
       res.render('new', { title: 'Edição de serviço', doc: docs[0], action: '/edit/' + docs[0]._id });
     }
   });
+});
+
+router.post('/edit/:id', function(req, res, next){
+  let id = req.params.id;
+  
+  let secretaria = req.body.secretaria || null;
+  let servico = req.body.servico || null;
+  let descricao = req.body.descricao || null;
+  let etapas = req.body.etapas || null;
+  let palavras_chave = req.body.palavras_chave || null;
+  let requisitos = req.body.requisitos || null;
+  let link = req.body.link || null;
+  let horario = req.body.horario || null;
+  let area_responsavel = req.body.area_responsavel || null;
+  let enderecos = req.body.enderecos || null;
+
+  global.db.updateOne(id, {
+    secretaria: secretaria,
+    servico: servico,
+    descricao: descricao,
+    etapas: etapas,
+    palavras_chave: palavras_chave,
+    requisitos: requisitos,
+    link: link,
+    horario: horario,
+    area_responsavel: area_responsavel,
+    enderecos: enderecos
+    
+  }), function(err, result){
+    if(err) {
+      throw new Error('Erro ao executar o update');
+    }else {
+      res.redirect('/');
+    }
+  }
 });
 
 module.exports = router;
