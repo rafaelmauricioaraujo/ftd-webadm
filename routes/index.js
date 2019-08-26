@@ -2,7 +2,12 @@ var express = require('express');
 require('dotenv').config();
 var router = express.Router();
 
-/* GET home page. */
+/** rota para login */
+router.get('/', function(req, res, rext){
+  res.render('login', {message: null});
+});
+
+/** necessário refazer essa rota, provavlemente para um post no login */
 router.get('/', function(req, res, next) {
 
   global.db.findAll(function(err, docs) {
