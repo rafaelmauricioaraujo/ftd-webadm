@@ -95,7 +95,7 @@ router.post('/edit/:id', function(req, res, next){
   let area_responsavel = req.body.area_responsavel || null;
   let enderecos = req.body.enderecos || null;
 
-  global.db.updateOne(id, {
+  global.db.update(id, {
     secretaria: secretaria,
     servico: servico,
     descricao: descricao,
@@ -106,14 +106,14 @@ router.post('/edit/:id', function(req, res, next){
     horario: horario,
     area_responsavel: area_responsavel,
     enderecos: enderecos
-    
-  }), function(err, result){
+  }, function(err, result){
     if(err) {
+      console.log(err);
       throw new Error('Erro ao executar o update');
-    }else {
+    }else{
       res.redirect('/');
     }
-  }
+  });
 });
 
 module.exports = router;
