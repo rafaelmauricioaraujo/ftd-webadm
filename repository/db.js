@@ -26,4 +26,4 @@ function deleteOne(id, callback){
     global.conn.collection(process.env.COLL).deleteOne({_id:new ObjectId(id)}, callback);
 }
 
-module.exports = { findAll, insertOne, findOne, update }
+module.exports = { findAll, insertOne, findOne, update, deleteOne }
