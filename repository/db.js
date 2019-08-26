@@ -22,4 +22,8 @@ function update(id, servico, callback){
     global.conn.collection(process.env.COLL).update({_id:new ObjectId(id)}, servico, callback);
 }
 
+function deleteOne(id, callback){
+    global.conn.collection(process.env.COLL).deleteOne({_id:new ObjectId(id)}, callback);
+}
+
 module.exports = { findAll, insertOne, findOne, update }
