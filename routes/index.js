@@ -13,10 +13,24 @@ function authenticationMiddleware() {
   }
 }
 
+
 /** rota para login */
 router.get('/', function(req, res, rext){
   res.render('login', {message: null});
 });
+
+router.get('/login', function(req, res) {
+  if(req.query.fail) {
+    res.render('login', {message: 'Usuário e/ou senha incorretos'});
+  }else {
+    res.render('login', {message: null});
+  }
+});
+
+router.post('/login', passport.authenticate('local', { 
+  successRedirect: '/index', 
+  failureRedirect: '/login?fail=true'
+}))
 
 /** necessário refazer essa rota, provavlemente para um post no login */
 router.get('/', function(req, res, next) {
