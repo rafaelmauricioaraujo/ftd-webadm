@@ -3,6 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+/** Importação de módulos para autenticação e gerencimaneto de sessão */
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
