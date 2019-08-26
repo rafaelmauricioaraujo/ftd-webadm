@@ -2,6 +2,17 @@ var express = require('express');
 require('dotenv').config();
 var router = express.Router();
 
+const passport = require('passport');
+
+function authenticationMiddleware() {
+  return function(req, res, next) {
+    if(req.isAuthenticated()) {
+      return next()
+    }
+    res.redirect('/login?fail=true');
+  }
+}
+
 /** rota para login */
 router.get('/', function(req, res, rext){
   res.render('login', {message: null});
