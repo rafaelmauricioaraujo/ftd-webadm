@@ -5,13 +5,13 @@ const ObjectId = require('mongodb').ObjectId;
 module.exports = function(passport){
 
     function findUser(username, callback){
-        global.db.collection(process.env.UCOLL).findOne({'username':username}, function(err, doc){
+        global.conn.collection(process.env.UCOLL).findOne({'username':username}, function(err, doc){
             callback(err, doc);
         });
     }
 
     function findUserById(id, callback){
-        global.db.collection(process.env.UCOLL).findOne({_id: ObjectId(id)}, function(err, doc){
+        global.conn.collection(process.env.UCOLL).findOne({_id: ObjectId(id)}, function(err, doc){
             callback(err, doc);
         });
     }
@@ -29,7 +29,7 @@ module.exports = function(passport){
     passport.use(new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password'
-    },function(username, passport, done) {
+    },function(username, password, done) {
         findUser(username, function(err, user){
             if(err) {
                 return done(err);

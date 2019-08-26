@@ -32,8 +32,7 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login?fail=true'
 }))
 
-/** necessário refazer essa rota, provavlemente para um post no login */
-router.get('/', function(req, res, next) {
+router.get('/index', authenticationMiddleware(), function(req, res, next) {
 
   global.db.findAll(function(err, docs) {
 
@@ -44,11 +43,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/new', function(req, res, next){
+router.get('/new', authenticationMiddleware(), function(req, res, next){
   res.render('new', { title: 'Novo serviço' , action: '/new' });
 });
 
-router.post('/new', function(req, res){
+router.post('/new', authenticationMiddleware(), function(req, res){
   
   /** Para collection no banco de dados: */
   let secretaria = req.body.secretaria || null;
@@ -99,7 +98,7 @@ router.post('/new', function(req, res){
     }
 })
 
-router.get('/edit/:id', function(req, res, next){
+router.get('/edit/:id', authenticationMiddleware(), function(req, res, next){
   let id = req.params.id;
 
   global.db.findOne(id, function(err, docs) {
@@ -111,7 +110,7 @@ router.get('/edit/:id', function(req, res, next){
   });
 });
 
-router.post('/edit/:id', function(req, res, next){
+router.post('/edit/:id', authenticationMiddleware(), function(req, res, next){
   let id = req.params.id;
   
   let secretaria = req.body.secretaria || null;
@@ -146,7 +145,7 @@ router.post('/edit/:id', function(req, res, next){
   });
 });
 
-router.get('/delete/:id', function(req, res){
+router.get('/delete/:id', authenticationMiddleware(), function(req, res){
   let id = req.params.id;
   global.db.deleteOne(id, function(err, result) {
     if(err) {

@@ -34,7 +34,8 @@ require('./auth')(passport);
 app.use(session({
   store: new MongoStore({
     db: global.db,
-    ttl: 30 * 60 /** 30 minutos de sessão */
+    ttl: 30 * 60 /** 30 minutos de sessão */,
+    url: process.env.URI
   }),
   secret: 'ftdigitalsecret',
   resave: false,

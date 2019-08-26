@@ -10,6 +10,16 @@ var http = require('http');
 global.db = require('../repository/db');
 global.wdb = require('../repository/wdb');
 
+// require('dotenv').load()
+// const mongoClient = require('mongodb').MongoClient;
+// mongoClient.connect(process.env.URI, function(err, conn){
+//   if(err){
+//     return console.log(err);
+//   }
+//   console.log('conectou ao banco de dados');
+//   global.db = conn.db(process.env.DB);
+// });
+
 /**
  * Get port from environment and store in Express.
  */
