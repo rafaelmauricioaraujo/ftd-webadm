@@ -116,4 +116,16 @@ router.post('/edit/:id', function(req, res, next){
   });
 });
 
+router.get('/delete/:id', function(req, res){
+  let id = req.params.id;
+  global.db.deleteOne(id, function(err, result) {
+    if(err) {
+      console.log(err);
+      throw new Error('Erro ao executar o deleteOne');
+    }else{
+      res.redirect('/');
+    }
+  });
+});
+
 module.exports = router;
